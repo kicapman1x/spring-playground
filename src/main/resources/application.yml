@@ -1,0 +1,32 @@
+server:
+  port: 8080
+  
+spring:
+  kafka:
+    bootstrap-servers: kafka-mq.han.gg:9092
+    properties:
+      security.protocol: SSL
+
+      ssl.truststore.type: PKCS12
+      ssl.truststore.location: /home/daddy/apps/lab_infra/ssl/certs/han.gg.p12
+      ssl.truststore.password: password
+
+      ssl.keystore.type: PKCS12
+      ssl.keystore.location: /home/daddy/apps/lab_infra/ssl/certs/han.gg.p12
+      ssl.keystore.password: password
+
+    consumer:
+      group-id: spring-playground-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics,prometheus
+
+logging:
+  level:
+    org.apache.kafka.common.security.ssl: DEBUG
