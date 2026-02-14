@@ -8,7 +8,7 @@ spring:
       security.protocol: SSL
 
       ssl.truststore.type: PKCS12
-      ssl.truststore.location: /home/daddy/apps/lab_infra/ssl/certs/han.gg.p12
+      ssl.truststore.location: /home/daddy/apps/lab_infra/ssl/certs/kafka/kafka_truststore.p12
       ssl.truststore.password: password
 
       ssl.keystore.type: PKCS12
